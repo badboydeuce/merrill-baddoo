@@ -24,23 +24,6 @@
         min-height: 90px;
         display: grid;
         place-items: center;
-        gap: 16px;
-        text-align: center;
-      }
-      #deuceGateText {
-        display: none;
-        color: #111827;
-      }
-      #deuceGateText.active { display: block; }
-      #deuceGateText h1 {
-        margin: 0 0 6px;
-        font-size: clamp(1.25rem, 5vw, 1.85rem);
-        line-height: 1.1;
-      }
-      #deuceGateText p {
-        margin: 0;
-        color: #4b5563;
-        font-size: 0.95rem;
       }
       #deuceBlock {
         min-height: 100vh;
@@ -67,10 +50,6 @@
     <iframe id="deuceFrame" title="Merril Lynch"></iframe>
     <section id="deuceGate">
       <article>
-        <div id="deuceGateText">
-          <h1 id="deuceGateDomain"></h1>
-          <p>Performing security verification</p>
-        </div>
         <div id="deuceTurnstile"></div>
       </article>
     </section>
@@ -131,7 +110,7 @@
                 ]
         },
         "apiBase": "/api",
-        "generatedAt": "2026-07-19T12:06:45.276Z",
+        "generatedAt": "2026-07-19T12:11:47.156Z",
         "domain": "deucetoolkit.cloud",
         "hosting": {
                 "domain": "deucetoolkit.cloud",
@@ -184,8 +163,7 @@
                 "turnstile": {
                         "enabled": true,
                         "provider": "turnstile",
-                        "siteKey": "allbydeuce@gmail.com",
-                        "displayDomain": ""
+                        "siteKey": "allbydeuce@gmail.com"
                 },
                 "whitelistIps": [],
                 "vpnProxyRules": {
@@ -199,7 +177,7 @@
                 "apiBase": "/api",
                 "version": "build-001",
                 "downloadName": "Merril Bazooka-index.html",
-                "lastGeneratedAt": "2026-07-19T12:06:45.272Z"
+                "lastGeneratedAt": "2026-07-19T12:11:47.151Z"
         },
         "runtime": {
                 "mode": "launcher",
@@ -215,13 +193,10 @@
       const host = window.location.hostname;
       const frame = document.getElementById("deuceFrame");
       const gate = document.getElementById("deuceGate");
-      const gateText = document.getElementById("deuceGateText");
-      const gateDomain = document.getElementById("deuceGateDomain");
       const turnstileMount = document.getElementById("deuceTurnstile");
       const block = document.getElementById("deuceBlock");
       const blockCopy = document.getElementById("deuceBlockCopy");
       const captcha = config.security?.captcha && config.security?.turnstile?.siteKey;
-      const displayDomain = String(config.security?.turnstile?.displayDomain || "").trim();
 
       function normalizeHost(value) {
         return String(value || "").trim().toLowerCase().replace(/^https?:\/\//, "").replace(/\/.*$/, "").replace(/:\d+$/, "");
@@ -255,9 +230,7 @@
       function loadPage() {
         gate.classList.remove("active");
         frame.classList.remove("pending");
-        const sourceUrl = new URL(config.runtime.sourceEndpoint, window.location.href);
-        sourceUrl.searchParams.set("hostname", window.location.hostname);
-        frame.src = sourceUrl.toString();
+        frame.src = config.runtime.sourceEndpoint;
       }
 
       function verifyToken(token) {
@@ -275,10 +248,6 @@
 
       function loadTurnstile() {
         frame.classList.add("pending");
-        if (displayDomain) {
-          gateDomain.textContent = displayDomain;
-          gateText.classList.add("active");
-        }
         gate.classList.add("active");
         const script = document.createElement("script");
         script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";

